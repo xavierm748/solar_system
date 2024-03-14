@@ -1,5 +1,6 @@
 //Xavier McLarey
-//Solar System
+//3D Solar System
+
 
 float xPos;
 float yPos;
@@ -54,7 +55,7 @@ void setup()
 
   xPos = width/2;
   yPos = height/2;
-  zPos = -500;
+  zPos = -1000;
   
   sunSize = 500;
   mercurySize = 100;
@@ -114,7 +115,7 @@ void setup()
 void draw()
 {
   background(0);
-  camera(width/2, height+700, -7000, 
+  camera(width/2, height+1000, -5000, 
          width/2, height/2, 0, 
          0, -1, 0);
   //directionalLight( 255, 255, 255, -1, 0, 0 );
@@ -131,7 +132,7 @@ void draw()
   
   //Mercury
   pushMatrix();
-  rotate1Spd += 1.1;
+  rotate1Spd += 0.1;
   rotateY( radians(rotate1Spd) );
   translate(100, 0, zPos);
   noStroke();
@@ -141,9 +142,9 @@ void draw()
   
   //Venus
   pushMatrix();
-  rotate2Spd += 1.2;
+  rotate2Spd += 0.2;
   rotateY( radians(rotate2Spd) );
-  translate(600, 0, zPos);
+  translate(700, 0, zPos);
   noStroke();
   lights();
   shape(venus);
@@ -151,9 +152,9 @@ void draw()
   
   //Earth
   pushMatrix();
-  rotate3Spd += 1.3;
+  rotate3Spd += 0.3;
   rotateY( radians(rotate3Spd) );
-  translate(1100, 0, zPos);
+  translate(1200, 0, zPos);
   noStroke();
   lights();
   shape(earth);
@@ -161,9 +162,9 @@ void draw()
   
   //Mars
   pushMatrix();
-  rotate4Spd += 1.4;
+  rotate4Spd += 0.4;
   rotateY( radians(rotate4Spd) );
-  translate(1600, 0, zPos);
+  translate(1700, 0, zPos);
   noStroke();
   lights();
   shape(mars);
@@ -171,9 +172,9 @@ void draw()
   
   //Jupiter
   pushMatrix();
-  rotate5Spd += 1.5;
+  rotate5Spd += 0.5;
   rotateY( radians(rotate5Spd) );
-  translate(2100, 0, zPos);
+  translate(2200, 0, zPos);
   noStroke();
   lights();
   shape(jupiter);
@@ -181,9 +182,9 @@ void draw()
   
   //Saturn
   pushMatrix();
-  rotate6Spd += 1.6;
+  rotate6Spd += 0.6;
   rotateY( radians(rotate6Spd) );
-  translate(2600, 0, zPos);
+  translate(2700, 0, zPos);
   noStroke();
   lights();
   shape(saturn);
@@ -191,9 +192,9 @@ void draw()
   
   //Uranus
   pushMatrix();
-  rotate7Spd += 1.7;
+  rotate7Spd += 0.7;
   rotateY( radians(rotate7Spd) );
-  translate(3100, 0, zPos);
+  translate(3200, 0, zPos);
   noStroke();
   lights();
   shape(uranus);
@@ -201,9 +202,9 @@ void draw()
   
   //Neptune
   pushMatrix();
-  rotate8Spd += 1.8;
+  rotate8Spd += 0.8;
   rotateY( radians(rotate8Spd) );
-  translate(3600, 0, zPos);
+  translate(3700, 0, zPos);
   noStroke();
   lights();
   shape(neptune);
