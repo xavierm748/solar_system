@@ -1,6 +1,5 @@
 //Xavier McLarey
 //3D Solar System
-//test
 
 float xPos;
 float yPos;
