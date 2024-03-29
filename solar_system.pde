@@ -1,6 +1,6 @@
 //Xavier McLarey
 //3D Solar System
-
+//test
 
 float xPos;
 float yPos;
@@ -52,11 +52,11 @@ void setup()
 {
   fullScreen(P3D);
   noStroke();
-
+ 
   xPos = width/2;
   yPos = height/2;
   zPos = -1000;
-  
+ 
   sunSize = 500;
   mercurySize = 100;
   venusSize = 150;
@@ -71,7 +71,7 @@ void setup()
   xSpd = 10;
   ySpd = 10;
   zSpd = 10;
-  
+ 
   //Sun
   Sun = loadImage("sun.png");
   sun = createShape(SPHERE, sunSize);
@@ -115,11 +115,19 @@ void setup()
 void draw()
 {
   background(0);
-  camera(width/2, height+1000, -5000, 
-         width/2, height/2, 0, 
-         0, -1, 0);
-  //directionalLight( 255, 255, 255, -1, 0, 0 );
-  
+   
+  if(mousePressed)
+  {
+    beginCamera();
+    camera();
+    translate(width/2, height/2, zPos);
+    rotateY( radians(mouseX/2) );
+    rotateX( radians(mouseY/2) );
+    endCamera();
+  }
+  else
+    camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
+ 
   //Sun
   pushMatrix();
   translate(width/2, height/2, zPos);
@@ -127,89 +135,89 @@ void draw()
   lights();
   shape(sun);
   popMatrix();
-  
+ 
   translate(xPos, yPos, zPos);
-  
-  //Mercury
-  pushMatrix();
-  rotate1Spd += 0.1;
-  rotateY( radians(rotate1Spd) );
-  translate(100, 0, zPos);
-  noStroke();
-  lights();
-  shape(mercury);
-  popMatrix();
-  
-  //Venus
-  pushMatrix();
-  rotate2Spd += 0.2;
-  rotateY( radians(rotate2Spd) );
-  translate(700, 0, zPos);
-  noStroke();
-  lights();
-  shape(venus);
-  popMatrix();
-  
-  //Earth
-  pushMatrix();
-  rotate3Spd += 0.3;
-  rotateY( radians(rotate3Spd) );
-  translate(1200, 0, zPos);
-  noStroke();
-  lights();
-  shape(earth);
-  popMatrix();
-  
-  //Mars
-  pushMatrix();
-  rotate4Spd += 0.4;
-  rotateY( radians(rotate4Spd) );
-  translate(1700, 0, zPos);
-  noStroke();
-  lights();
-  shape(mars);
-  popMatrix();
-  
-  //Jupiter
-  pushMatrix();
-  rotate5Spd += 0.5;
-  rotateY( radians(rotate5Spd) );
-  translate(2200, 0, zPos);
-  noStroke();
-  lights();
-  shape(jupiter);
-  popMatrix();
-  
-  //Saturn
-  pushMatrix();
-  rotate6Spd += 0.6;
-  rotateY( radians(rotate6Spd) );
-  translate(2700, 0, zPos);
-  noStroke();
-  lights();
-  shape(saturn);
-  popMatrix();
-  
-  //Uranus
-  pushMatrix();
-  rotate7Spd += 0.7;
-  rotateY( radians(rotate7Spd) );
-  translate(3200, 0, zPos);
-  noStroke();
-  lights();
-  shape(uranus);
-  popMatrix();
-  
-  //Neptune
-  pushMatrix();
-  rotate8Spd += 0.8;
-  rotateY( radians(rotate8Spd) );
-  translate(3700, 0, zPos);
-  noStroke();
-  lights();
-  shape(neptune);
-  popMatrix();
-  
+ 
+  ////Mercury
+  //pushMatrix();
+  //rotate1Spd += 4.15;
+  //rotateY( radians(rotate1Spd) );
+  //translate(100, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(mercury);
+  //popMatrix();
+ 
+  ////Venus
+  //pushMatrix();
+  //rotate2Spd += 1.62;
+  //rotateY( radians(rotate2Spd) );
+  //translate(700, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(venus);
+  //popMatrix();
+ 
+  ////Earth
+  //pushMatrix();
+  //rotate3Spd += 1;
+  //rotateY( radians(rotate3Spd) );
+  //translate(1200, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(earth);
+  //popMatrix();
+ 
+  ////Mars
+  //pushMatrix();
+  //rotate4Spd += 0.53;
+  //rotateY( radians(rotate4Spd) );
+  //translate(1700, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(mars);
+  //popMatrix();
+ 
+  ////Jupiter
+  //pushMatrix();
+  //rotate5Spd += 0.083;
+  //rotateY( radians(rotate5Spd) );
+  //translate(2200, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(jupiter);
+  //popMatrix();
+ 
+  ////Saturn
+  //pushMatrix();
+  //rotate6Spd += 0.0345;
+  //rotateY( radians(rotate6Spd) );
+  //translate(2700, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(saturn);
+  //popMatrix();
+ 
+  ////Uranus
+  //pushMatrix();
+  //rotate7Spd += 0.012;
+  //rotateY( radians(rotate7Spd) );
+  //translate(3200, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(uranus);
+  //popMatrix();
+ 
+  ////Neptune
+  //pushMatrix();
+  //rotate8Spd += 0.0061;
+  //rotateY( radians(rotate8Spd) );
+  //translate(3700, 0, zPos);
+  //noStroke();
+  //lights();
+  //shape(neptune);
+  //popMatrix();
+ 
   //println("X: " + xPos);
   //println("Y: " + yPos);
   //println("Z: " + zPos);
