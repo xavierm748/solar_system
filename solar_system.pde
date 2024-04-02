@@ -116,15 +116,22 @@ void draw()
 {
   background(0);
    
-   circle(200,200,1000);
+  //pushMatrix();
+  //noFill();
+  //stroke(255);
+  //strokeWeight(20);
+  //rotateY( radians(90) );
+  //translate((width/2), height/2, zPos);
+  //circle(0,0,1500);
+  //popMatrix();
 
   if(mousePressed)
   {
     beginCamera();
     camera();
-    translate(width/2, height/2, zPos);
-    rotateY( radians(mouseX/2) );
-    rotateX( radians(mouseY/2) );
+    translate(0, 0, zPos);
+    rotateY( radians(mouseX/5) );
+    //rotateX( radians(mouseY/5) );
     translate(width/2, height/2, 0);
     endCamera();
   }
