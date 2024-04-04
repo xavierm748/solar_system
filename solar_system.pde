@@ -8,11 +8,15 @@ float zPos;
 float xSpd;
 float ySpd;
 float zSpd;
+float earthxPos;
+float earthyPos;
+float earthzPos;
 
 float sunSize;
 float mercurySize;
 float venusSize;
 float earthSize;
+float moonSize;
 float marsSize;
 float jupiterSize;
 float saturnSize;
@@ -27,11 +31,13 @@ float rotate5Spd;
 float rotate6Spd;
 float rotate7Spd;
 float rotate8Spd;
+float moonRotateSpd;
 
 PShape sun;
 PShape mercury;
 PShape venus;
 PShape earth;
+PShape moon;
 PShape mars;
 PShape jupiter;
 PShape saturn;
@@ -42,6 +48,7 @@ PImage Sun;
 PImage Mercury;
 PImage Venus;
 PImage Earth;
+PImage Moon;
 PImage Mars;
 PImage Jupiter;
 PImage Saturn;
@@ -56,11 +63,16 @@ void setup()
   xPos = width/2;
   yPos = height/2;
   zPos = -1000;
- 
+  
+  earthxPos = 1500;
+  earthyPos = 0;
+  earthzPos = -1000;
+
   sunSize = 500;
   mercurySize = 100;
   venusSize = 150;
   earthSize = 200;
+  moonSize = 50;
   marsSize = 175;
   jupiterSize = 300;
   saturnSize = 275;
@@ -88,6 +100,10 @@ void setup()
   Earth = loadImage("earth.png");
   earth = createShape(SPHERE, earthSize);
   earth.setTexture(Earth);
+  //Moon
+  Moon = loadImage("moon.png");
+  moon = createShape(SPHERE, moonSize);
+  moon.setTexture(Moon);
   //Mars
   Mars = loadImage("mars.png");
   mars = createShape(SPHERE, marsSize);
@@ -125,19 +141,23 @@ void draw()
   //circle(0,0,1500);
   //popMatrix();
 
-  if(mousePressed)
-  {
-    beginCamera();
-    camera();
-    translate(0, 0, zPos);
-    rotateY( radians(mouseX/5) );
-    //rotateX( radians(mouseY/5) );
-    translate(width/2, height/2, 0);
-    endCamera();
-  }
-  else
-    camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
+  //if(mousePressed)
+  //{
+  //  beginCamera();
+  //  camera();
+  //  translate(1000, 1000, zPos);
+  //  rotateY( radians(mouseX/5) );
+  //  //rotateX( radians(mouseY/7) );
+  //  //camera();
+  //  //translate(width/2, height/2, 0);
+  //  endCamera();
+  //}
+  //else
+  camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
  
+  if(mousePressed)
+    rotateY( radians(mouseX/5) );
+
   //Sun
   pushMatrix();
   translate(width/2, height/2, zPos);
@@ -146,7 +166,6 @@ void draw()
   shape(sun);
   popMatrix();
   
- 
   translate(xPos, yPos, zPos);
  
   //Mercury
@@ -173,12 +192,21 @@ void draw()
   pushMatrix();
   rotate3Spd += 1;
   rotateY( radians(rotate3Spd) );
-  translate(1500, 0, zPos);
+  translate(earthxPos, earthyPos, earthzPos);
   noStroke();
   lights();
   shape(earth);
+  //Moon
+  pushMatrix();
+  moonRotateSpd += 0.5;
+  rotateY( radians(moonRotateSpd) );
+  translate(200, earthyPos, earthzPos);
+  noStroke();
+  lights();
+  shape(moon);
   popMatrix();
- 
+  popMatrix();
+
   //Mars
   pushMatrix();
   rotate4Spd += 0.53;
