@@ -196,17 +196,15 @@ void draw()
   noStroke();
   lights();
   shape(earth);
+  popMatrix();
+  
   //Moon
   pushMatrix();
-  moonRotateSpd += 0.5;
-  rotateY( radians(moonRotateSpd) );
-  translate(200, earthyPos, earthzPos);
-  noStroke();
-  lights();
-  shape(moon);
+  rotate3Spd += 1;
+  rotateY( radians(rotate3Spd) );
+  moon();
   popMatrix();
-  popMatrix();
-
+  
   //Mars
   pushMatrix();
   rotate4Spd += 0.53;
@@ -257,7 +255,23 @@ void draw()
   shape(neptune);
   popMatrix();
  
-  //println("X: " + xPos);
-  //println("Y: " + yPos);
-  //println("Z: " + zPos);
+
+  println("X: " + earthxPos);
+  println("Y: " + earthyPos);
+  println("Z: " + earthzPos);
+}
+
+void moon()
+{
+  translate(earthxPos, earthyPos, earthzPos);
+  
+  pushMatrix();
+  moonRotateSpd += 0.5;
+  rotateY( radians(moonRotateSpd) );
+  translate(50, 0, earthzPos);
+  noStroke();
+  lights();
+  shape(moon);
+  popMatrix();
+
 }
