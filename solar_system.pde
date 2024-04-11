@@ -132,27 +132,6 @@ void draw()
 {
   background(0);
    
-  //pushMatrix();
-  //noFill();
-  //stroke(255);
-  //strokeWeight(20);
-  //rotateY( radians(90) );
-  //translate((width/2), height/2, zPos);
-  //circle(0,0,1500);
-  //popMatrix();
-
-  //if(mousePressed)
-  //{
-  //  beginCamera();
-  //  camera();
-  //  translate(1000, 1000, zPos);
-  //  rotateY( radians(mouseX/5) );
-  //  //rotateX( radians(mouseY/7) );
-  //  //camera();
-  //  //translate(width/2, height/2, 0);
-  //  endCamera();
-  //}
-  //else
   camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
  
   if(mousePressed)
@@ -197,19 +176,12 @@ void draw()
   lights();
   shape(earth);
   popMatrix();
-  
-  //Moon
-  pushMatrix();
-  rotate3Spd += 1;
-  rotateY( radians(rotate3Spd) );
-  moon();
-  popMatrix();
-  
+    
   //Mars
   pushMatrix();
   rotate4Spd += 0.53;
   rotateY( radians(rotate4Spd) );
-  translate(2000, 0, zPos);
+  translate(2500, 0, zPos);
   noStroke();
   lights();
   shape(mars);
@@ -219,7 +191,7 @@ void draw()
   pushMatrix();
   rotate5Spd += 0.083;
   rotateY( radians(rotate5Spd) );
-  translate(2500, 0, zPos);
+  translate(3500, 0, zPos);
   noStroke();
   lights();
   shape(jupiter);
@@ -229,7 +201,7 @@ void draw()
   pushMatrix();
   rotate6Spd += 0.0345;
   rotateY( radians(rotate6Spd) );
-  translate(3000, 0, zPos);
+  translate(4500, 0, zPos);
   noStroke();
   lights();
   shape(saturn);
@@ -239,7 +211,7 @@ void draw()
   pushMatrix();
   rotate7Spd += 0.012;
   rotateY( radians(rotate7Spd) );
-  translate(3500, 0, zPos);
+  translate(5500, 0, zPos);
   noStroke();
   lights();
   shape(uranus);
@@ -249,11 +221,17 @@ void draw()
   pushMatrix();
   rotate8Spd += 0.0061;
   rotateY( radians(rotate8Spd) );
-  translate(4000, 0, zPos);
+  translate(6000, 0, zPos);
   noStroke();
   lights();
   shape(neptune);
   popMatrix();
+  
+  //Moon
+  rotate3Spd += 1;
+  rotateY( radians(rotate3Spd) );
+  moon();
+
  
 
   println("X: " + earthxPos);
@@ -266,9 +244,9 @@ void moon()
   translate(earthxPos, earthyPos, earthzPos);
   
   pushMatrix();
-  moonRotateSpd += 0.5;
+  moonRotateSpd += 10;
   rotateY( radians(moonRotateSpd) );
-  translate(50, 0, earthzPos);
+  translate(50, 0, -500);
   noStroke();
   lights();
   shape(moon);
