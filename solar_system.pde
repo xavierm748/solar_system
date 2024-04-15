@@ -181,7 +181,7 @@ void draw()
   pushMatrix();
   rotate4Spd += 0.53;
   rotateY( radians(rotate4Spd) );
-  translate(2500, 0, zPos);
+  translate(2000, 0, zPos);
   noStroke();
   lights();
   shape(mars);
@@ -191,7 +191,7 @@ void draw()
   pushMatrix();
   rotate5Spd += 0.083;
   rotateY( radians(rotate5Spd) );
-  translate(3500, 0, zPos);
+  translate(2500, 0, zPos);
   noStroke();
   lights();
   shape(jupiter);
@@ -201,7 +201,7 @@ void draw()
   pushMatrix();
   rotate6Spd += 0.0345;
   rotateY( radians(rotate6Spd) );
-  translate(4500, 0, zPos);
+  translate(3000, 0, zPos);
   noStroke();
   lights();
   shape(saturn);
@@ -211,7 +211,7 @@ void draw()
   pushMatrix();
   rotate7Spd += 0.012;
   rotateY( radians(rotate7Spd) );
-  translate(5500, 0, zPos);
+  translate(3500, 0, zPos);
   noStroke();
   lights();
   shape(uranus);
@@ -221,7 +221,7 @@ void draw()
   pushMatrix();
   rotate8Spd += 0.0061;
   rotateY( radians(rotate8Spd) );
-  translate(6000, 0, zPos);
+  translate(4000, 0, zPos);
   noStroke();
   lights();
   shape(neptune);
