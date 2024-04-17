@@ -135,7 +135,10 @@ void draw()
   camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
  
   if(mousePressed)
+  {
+    translate(xPos, yPos, zPos);
     rotateY( radians(mouseX/5) );
+  }
 
   //Sun
   pushMatrix();
