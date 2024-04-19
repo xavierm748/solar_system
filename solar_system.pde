@@ -86,7 +86,7 @@ void setup()
     loading all of the images of the planets
     creating all of the planets by making them into a sphere shape
     the createShape() command makes it easier to draw a shape because you 
-    can if you want change the sphere into a triangle, square, or an arc 
+    can if you want change the sphere into a triangle, cube, or an arc 
     making the images of the planet the texture of the shape almost like a fill command
     the setTexture() command makes the shape the image instead of the image being shperical
   */
@@ -137,6 +137,73 @@ void draw()
 {
   background(0);
   
+  if(key == 'b' || key == 'B')
+  {
+    //sun
+    sun = createShape(BOX, sunSize);
+    sun.setTexture(Sun);
+    //Mercury
+    mercury = createShape(BOX, mercurySize);
+    mercury.setTexture(Mercury);
+    //Venus
+    venus = createShape(BOX, venusSize);
+    venus.setTexture(Venus);
+    //Earth
+    earth = createShape(BOX, earthSize);
+    earth.setTexture(Earth);
+    //Moon
+    moon = createShape(BOX, moonSize);
+    moon.setTexture(Moon);
+    //Mars
+    mars = createShape(BOX, marsSize);
+    mars.setTexture(Mars);
+    //Jupiter
+    jupiter = createShape(BOX, jupiterSize);
+    jupiter.setTexture(Jupiter);
+    //Saturn
+    saturn = createShape(BOX, saturnSize);
+    saturn.setTexture(Saturn);
+    //Uranus
+    uranus = createShape(BOX, uranusSize);
+    uranus.setTexture(Uranus);
+    //Neptune
+    neptune = createShape(BOX, neptuneSize);
+    neptune.setTexture(Neptune);
+  }
+  if(key == 's' || key == 'S')
+  {
+    //Sun
+    sun = createShape(SPHERE, sunSize);
+    sun.setTexture(Sun);
+    //Mercury
+    mercury = createShape(SPHERE, mercurySize);
+    mercury.setTexture(Mercury);
+    //Venus
+    venus = createShape(SPHERE, venusSize);
+    venus.setTexture(Venus);
+    //Earth
+    earth = createShape(SPHERE, earthSize);
+    earth.setTexture(Earth);
+    //Moon
+    moon = createShape(SPHERE, moonSize);
+    moon.setTexture(Moon);
+    //Mars
+    mars = createShape(SPHERE, marsSize);
+    mars.setTexture(Mars);
+    //Jupiter
+    jupiter = createShape(SPHERE, jupiterSize);
+    jupiter.setTexture(Jupiter);
+    //Saturn
+    saturn = createShape(SPHERE, saturnSize);
+    saturn.setTexture(Saturn);
+    //Uranus
+    uranus = createShape(SPHERE, uranusSize);
+    uranus.setTexture(Uranus);
+    //Neptune
+    neptune = createShape(SPHERE, neptuneSize);
+    neptune.setTexture(Neptune);
+  }
+
   //setting the initial camera position
   camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
   
