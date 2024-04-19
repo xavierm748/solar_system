@@ -1,7 +1,6 @@
 //Xavier McLarey
 //3D Solar System
 
-
 float xPos;
 float yPos;
 float zPos;
@@ -60,14 +59,18 @@ void setup()
   fullScreen(P3D);
   noStroke();
  
+  //setting initial values of every variable
+  //setting the initial position of all of the planets
   xPos = width/2;
   yPos = height/2;
   zPos = -1000;
   
+  //setting earths position and tracking it so the moon can follow it
   earthxPos = 1500;
   earthyPos = 0;
   earthzPos = -1000;
-
+  
+  //sets all of the planets size variables
   sunSize = 500;
   mercurySize = 100;
   venusSize = 150;
@@ -78,12 +81,15 @@ void setup()
   saturnSize = 275;
   uranusSize = 225;
   neptuneSize = 200;
-
-
-  xSpd = 10;
-  ySpd = 10;
-  zSpd = 10;
- 
+  
+  /*
+    loading all of the images of the planets
+    creating all of the planets by making them into a sphere shape
+    the createShape() command makes it easier to draw a shape because you 
+    can if you want change the sphere into a triangle, square, or an arc 
+    making the images of the planet the texture of the shape almost like a fill command
+    the setTexture() command makes the shape the image instead of the image being shperical
+  */
   //Sun
   Sun = loadImage("sun.png");
   sun = createShape(SPHERE, sunSize);
@@ -124,22 +130,24 @@ void setup()
   Neptune = loadImage("neptune.png");
   neptune = createShape(SPHERE, neptuneSize);
   neptune.setTexture(Neptune);
-
-
+  
 }
 
 void draw()
 {
   background(0);
-   
+  
+  //setting the initial camera position
   camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
- 
+  
+  //this lets you spin the whole solar system around to see the whole thing
   if(mousePressed)
   {
     translate(xPos, yPos, zPos);
     rotateY( radians(mouseX/5) );
   }
-
+  
+  //drawing all of the planets and the sun
   //Sun
   pushMatrix();
   translate(width/2, height/2, zPos);
@@ -148,6 +156,7 @@ void draw()
   shape(sun);
   popMatrix();
   
+  //setting the rotation point for all of the planets except for the moon
   translate(xPos, yPos, zPos);
  
   //Mercury
@@ -235,13 +244,13 @@ void draw()
   rotateY( radians(rotate3Spd) );
   moon();
 
- 
-
-  println("X: " + earthxPos);
-  println("Y: " + earthyPos);
-  println("Z: " + earthzPos);
+  //debugging
+  //println("X: " + earthxPos);
+  //println("Y: " + earthyPos);
+  //println("Z: " + earthzPos);
 }
 
+//creating the moon
 void moon()
 {
   translate(earthxPos, earthyPos, earthzPos);
