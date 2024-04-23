@@ -1,6 +1,8 @@
 //Xavier McLarey
 //3D Solar System
 
+float scale;
+
 float xPos;
 float yPos;
 float zPos;
@@ -60,6 +62,9 @@ void setup()
   noStroke();
  
   //setting initial values of every variable
+  
+  //sets the scale factor of the solar system so you can make it bigger or smaller if you want
+  scale = 1;
   //setting the initial position of all of the planets
   xPos = width/2;
   yPos = height/2;
@@ -71,16 +76,16 @@ void setup()
   earthzPos = -1000;
   
   //sets all of the planets size variables
-  sunSize = 500;
-  mercurySize = 100;
-  venusSize = 150;
-  earthSize = 200;
-  moonSize = 50;
-  marsSize = 175;
-  jupiterSize = 300;
-  saturnSize = 275;
-  uranusSize = 225;
-  neptuneSize = 200;
+  sunSize = 500 * scale;
+  mercurySize = 100 * scale;
+  venusSize = 150 * scale;
+  earthSize = 200 * scale;
+  moonSize = 50 * scale;
+  marsSize = 175 * scale;
+  jupiterSize = 300 * scale;
+  saturnSize = 275 * scale;
+  uranusSize = 225 * scale;
+  neptuneSize = 200 * scale;
   
   /*
     loading all of the images of the planets
@@ -137,6 +142,14 @@ void draw()
 {
   background(0);
   
+  ////this lets you change the scale factor whenever you want
+  //if(key == 'q' || key == 'Q')
+  //  scale += 0.5;
+  //if(key == 'e' || key == 'E')
+  //  scale -= 0.5;
+  //if(scale >= 2 || scale <= 0)
+  //  scale = 1;
+  //this makes you be able to switch the planets between spheres and boxs
   if(key == 'b' || key == 'B')
   {
     //sun
@@ -204,33 +217,30 @@ void draw()
     neptune.setTexture(Neptune);
   }
 
-  //setting the initial camera position
+  //setting the default camera position
   camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
-  
-  //this lets you spin the whole solar system around to see the whole thing
-  if(mousePressed)
-  {
-    translate(xPos, yPos, zPos);
-    rotateY( radians(mouseX/5) );
-  }
   
   //drawing all of the planets and the sun
   //Sun
   pushMatrix();
-  translate(width/2, height/2, zPos);
+  translate(xPos, yPos, zPos);
   noStroke();
   lights();
   shape(sun);
   popMatrix();
   
-  //setting the rotation point for all of the planets except for the moon
+  //this lets you spin the whole solar system around to see the whole thing
+  if(mousePressed)
+    rotateY( radians(mouseX/5) );
+  
+  //sets the planets to orbit around the sun except for the moon
   translate(xPos, yPos, zPos);
  
   //Mercury
   pushMatrix();
   rotate1Spd += 4.15;
   rotateY( radians(rotate1Spd) );
-  translate(100, 0, zPos);
+  translate(100 * scale, 0, zPos);
   noStroke();
   lights();
   shape(mercury);
@@ -240,7 +250,7 @@ void draw()
   pushMatrix();
   rotate2Spd += 1.62;
   rotateY( radians(rotate2Spd) );
-  translate(1000, 0, zPos);
+  translate(1000 * scale, 0, zPos);
   noStroke();
   lights();
   shape(venus);
@@ -250,7 +260,7 @@ void draw()
   pushMatrix();
   rotate3Spd += 1;
   rotateY( radians(rotate3Spd) );
-  translate(earthxPos, earthyPos, earthzPos);
+  translate(earthxPos * scale, earthyPos, earthzPos);
   noStroke();
   lights();
   shape(earth);
@@ -260,7 +270,7 @@ void draw()
   pushMatrix();
   rotate4Spd += 0.53;
   rotateY( radians(rotate4Spd) );
-  translate(2000, 0, zPos);
+  translate(2000 * scale, 0, zPos);
   noStroke();
   lights();
   shape(mars);
@@ -270,7 +280,7 @@ void draw()
   pushMatrix();
   rotate5Spd += 0.083;
   rotateY( radians(rotate5Spd) );
-  translate(2500, 0, zPos);
+  translate(2500 * scale, 0, zPos);
   noStroke();
   lights();
   shape(jupiter);
@@ -280,7 +290,7 @@ void draw()
   pushMatrix();
   rotate6Spd += 0.0345;
   rotateY( radians(rotate6Spd) );
-  translate(3000, 0, zPos);
+  translate(3000 * scale, 0, zPos);
   noStroke();
   lights();
   shape(saturn);
@@ -290,7 +300,7 @@ void draw()
   pushMatrix();
   rotate7Spd += 0.012;
   rotateY( radians(rotate7Spd) );
-  translate(3500, 0, zPos);
+  translate(3500 * scale, 0, zPos);
   noStroke();
   lights();
   shape(uranus);
@@ -300,7 +310,7 @@ void draw()
   pushMatrix();
   rotate8Spd += 0.0061;
   rotateY( radians(rotate8Spd) );
-  translate(4000, 0, zPos);
+  translate(4000 * scale, 0, zPos);
   noStroke();
   lights();
   shape(neptune);
@@ -320,12 +330,12 @@ void draw()
 //creating the moon
 void moon()
 {
-  translate(earthxPos, earthyPos, earthzPos);
+  translate(earthxPos * scale, earthyPos * scale, earthzPos);
   
   pushMatrix();
   moonRotateSpd += 10;
   rotateY( radians(moonRotateSpd) );
-  translate(50, 0, -500);
+  translate(50 * scale, 0, -500);
   noStroke();
   lights();
   shape(moon);
