@@ -3,17 +3,16 @@
 
 float scale;
 
-float xPos;
-float yPos;
-float zPos;
-float xSpd;
-float ySpd;
-float zSpd;
+//creating the variables for suns position and also the center point of the solar system
+float sunxPos;
+float sunyPos;
+float sunzPos;
+//creating the variables for earths position
 float earthxPos;
 float earthyPos;
 float earthzPos;
 
-float sunxPos;
+//creating variables for each planets initial x position
 float mercuryxPos;
 float venusxPos;
 float moonxPos;
@@ -23,6 +22,7 @@ float saturnxPos;
 float uranusxPos;
 float neptunexPos;
 
+//creating the variables for each planets size
 float sunSize;
 float mercurySize;
 float venusSize;
@@ -34,6 +34,7 @@ float saturnSize;
 float uranusSize;
 float neptuneSize;
 
+//creates the rotation speed variables
 float rotate1Spd;
 float rotate2Spd;
 float rotate3Spd;
@@ -42,8 +43,9 @@ float rotate5Spd;
 float rotate6Spd;
 float rotate7Spd;
 float rotate8Spd;
-float moonRotateSpd;
+float moonrotateSpd;
 
+//creating the shape variables
 PShape sun;
 PShape mercury;
 PShape venus;
@@ -55,6 +57,7 @@ PShape saturn;
 PShape uranus;
 PShape neptune;
 
+//creating the image variables
 PImage Sun;
 PImage Mercury;
 PImage Venus;
@@ -75,35 +78,40 @@ void setup()
   
   //sets the scale factor of the solar system so you can make it bigger or smaller if you want
   scale = 1;
-  //setting the initial position of all of the planets
+  /*
+  1. setting the initial position of all of the planets
+  2. these variables dont only store the initial value but they also are the
+     distance between the center of the planet and the center of the sun
+  */
   sunxPos = width/2;
   mercuryxPos = 100;
-  venusxPos = 1000;
-  moonxPos = 50;
-  marsxPos = 2000;
-  jupiterxPos = 2500;
-  saturnxPos = 3000;
-  uranusxPos = 3500;
-  neptunexPos = 4000;
-  yPos = height/2;
-  zPos = -1000;
-  
-  //setting earths position and tracking it so the moon can follow it
+  venusxPos = 600;
   earthxPos = 1500;
+  moonxPos = 50;
+  marsxPos = 2200;
+  jupiterxPos = 2800;
+  saturnxPos = 3400;
+  uranusxPos = 4000;
+  neptunexPos = 4500;
+  //sets the Y position of the planets so they will be in the middle of the screen
+  sunyPos = height/2;
+  sunzPos = -1000;
+  
+  //setting earths initial position
   earthyPos = 0;
   earthzPos = -1000;
   
   //sets all of the planets size variables
-  sunSize = 500 * scale;
-  mercurySize = 100 * scale;
-  venusSize = 150 * scale;
-  earthSize = 200 * scale;
-  moonSize = 50 * scale;
-  marsSize = 175 * scale;
-  jupiterSize = 300 * scale;
-  saturnSize = 275 * scale;
-  uranusSize = 225 * scale;
-  neptuneSize = 200 * scale;
+  sunSize = 500;
+  mercurySize = 100;
+  venusSize = 150;
+  earthSize = 200;
+  moonSize = 50;
+  marsSize = 175;
+  jupiterSize = 300;
+  saturnSize = 275;
+  uranusSize = 225;
+  neptuneSize = 200;
   
   /*
     loading all of the images of the planets
@@ -247,7 +255,7 @@ void draw()
     rotateY( radians(mouseX/5) );
   
   //sets the planets to orbit around the sun except for the moon
-  translate(xPos, yPos, zPos);
+  translate(sunxPos, sunyPos, sunzPos);
   //Mercury
   mercury();
   //Venus
@@ -272,14 +280,14 @@ void draw()
   //debugging
   //println("X: " + earthxPos);
   //println("Y: " + earthyPos);
-  //println("Z: " + earthzPos);
+  //println("Z: " + earthsunzPos);
 }
 
 //creating the sun
 void sun()
 {  
   pushMatrix();
-  translate(xPos, yPos, zPos);
+  translate(sunxPos, sunyPos, sunzPos);
   noStroke();
   lights();
   shape(sun);
@@ -292,7 +300,7 @@ void mercury()
   pushMatrix();
   rotate1Spd += 4.15;
   rotateY( radians(rotate1Spd) );
-  translate(mercuryxPos, 0, zPos);
+  translate(mercuryxPos, 0, sunzPos);
   noStroke();
   lights();
   shape(mercury);
@@ -305,7 +313,7 @@ void venus()
   pushMatrix();
   rotate2Spd += 1.62;
   rotateY( radians(rotate2Spd) );
-  translate(venusxPos, 0, zPos);
+  translate(venusxPos, 0, sunzPos);
   noStroke();
   lights();
   shape(venus);
@@ -318,7 +326,7 @@ void earth()
   pushMatrix();
   rotate3Spd += 1;
   rotateY( radians(rotate3Spd) );
-  translate(earthxPos * scale, earthyPos, earthzPos);
+  translate(earthxPos, earthyPos, earthzPos);
   noStroke();
   lights();
   shape(earth);
@@ -328,12 +336,12 @@ void earth()
   //creating the moon
   void moon()
   {
-    translate(earthxPos * scale, earthyPos * scale, earthzPos);
+    translate(earthxPos, earthyPos, earthzPos);
     
     pushMatrix();
-    moonRotateSpd += 10;
-    rotateY( radians(moonRotateSpd) );
-    translate(50 * scale, 0, -500);
+    moonrotateSpd += 10;
+    rotateY( radians(moonrotateSpd) );
+    translate(50, 0, -500);
     noStroke();
     lights();
     shape(moon);
@@ -347,7 +355,7 @@ void mars()
   pushMatrix();
   rotate4Spd += 0.53;
   rotateY( radians(rotate4Spd) );
-  translate(marsxPos, 0, zPos);
+  translate(marsxPos, 0, sunzPos);
   noStroke();
   lights();
   shape(mars);
@@ -360,7 +368,7 @@ void jupiter()
   pushMatrix();
   rotate5Spd += 0.083;
   rotateY( radians(rotate5Spd) );
-  translate(jupiterxPos, 0, zPos);
+  translate(jupiterxPos, 0, sunzPos);
   noStroke();
   lights();
   shape(jupiter);
@@ -373,7 +381,7 @@ void saturn()
   pushMatrix();
   rotate6Spd += 0.0345;
   rotateY( radians(rotate6Spd) );
-  translate(saturnxPos, 0, zPos);
+  translate(saturnxPos, 0, sunzPos);
   noStroke();
   lights();
   shape(saturn);
@@ -386,7 +394,7 @@ void uranus()
   pushMatrix();
   rotate7Spd += 0.012;
   rotateY( radians(rotate7Spd) );
-  translate(uranusxPos, 0, zPos);
+  translate(uranusxPos, 0, sunzPos);
   noStroke();
   lights();
   shape(uranus);
@@ -399,7 +407,7 @@ void neptune()
   pushMatrix();
   rotate8Spd += 0.0061;
   rotateY( radians(rotate8Spd) );
-  translate(neptunexPos, 0, zPos);
+  translate(neptunexPos, 0, sunzPos);
   noStroke();
   lights();
   shape(neptune);
