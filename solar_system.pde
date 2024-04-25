@@ -240,12 +240,7 @@ void draw()
   
   //drawing all of the planets and the sun
   //Sun
-  pushMatrix();
-  translate(xPos, yPos, zPos);
-  noStroke();
-  lights();
-  shape(sun);
-  popMatrix();
+  sun();
   
   //this lets you spin the whole solar system around to see the whole thing
   if(mousePressed)
@@ -253,87 +248,22 @@ void draw()
   
   //sets the planets to orbit around the sun except for the moon
   translate(xPos, yPos, zPos);
- 
   //Mercury
-  pushMatrix();
-  rotate1Spd += 4.15;
-  rotateY( radians(rotate1Spd) );
-  translate(mercuryxPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(mercury);
-  popMatrix();
- 
+  mercury();
   //Venus
-  pushMatrix();
-  rotate2Spd += 1.62;
-  rotateY( radians(rotate2Spd) );
-  translate(venusxPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(venus);
-  popMatrix();
- 
+  venus();
   //Earth
-  pushMatrix();
-  rotate3Spd += 1;
-  rotateY( radians(rotate3Spd) );
-  translate(earthxPos * scale, earthyPos, earthzPos);
-  noStroke();
-  lights();
-  shape(earth);
-  popMatrix();
-    
+  earth();
   //Mars
-  pushMatrix();
-  rotate4Spd += 0.53;
-  rotateY( radians(rotate4Spd) );
-  translate(marsxPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(mars);
-  popMatrix();
- 
+  mars();
   //Jupiter
-  pushMatrix();
-  rotate5Spd += 0.083;
-  rotateY( radians(rotate5Spd) );
-  translate(jupiterxPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(jupiter);
-  popMatrix();
- 
+  jupiter();
   //Saturn
-  pushMatrix();
-  rotate6Spd += 0.0345;
-  rotateY( radians(rotate6Spd) );
-  translate(saturnxPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(saturn);
-  popMatrix();
- 
+  saturn();
   //Uranus
-  pushMatrix();
-  rotate7Spd += 0.012;
-  rotateY( radians(rotate7Spd) );
-  translate(uranusxPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(uranus);
-  popMatrix();
- 
+  uranus();
   //Neptune
-  pushMatrix();
-  rotate8Spd += 0.0061;
-  rotateY( radians(rotate8Spd) );
-  translate(neptunexPos, 0, zPos);
-  noStroke();
-  lights();
-  shape(neptune);
-  popMatrix();
-  
+  neptune();
   //Moon
   rotate3Spd += 1;
   rotateY( radians(rotate3Spd) );
@@ -345,18 +275,133 @@ void draw()
   //println("Z: " + earthzPos);
 }
 
-//creating the moon
-void moon()
-{
-  translate(earthxPos * scale, earthyPos * scale, earthzPos);
-  
+//creating the sun
+void sun()
+{  
   pushMatrix();
-  moonRotateSpd += 10;
-  rotateY( radians(moonRotateSpd) );
-  translate(50 * scale, 0, -500);
+  translate(xPos, yPos, zPos);
   noStroke();
   lights();
-  shape(moon);
+  shape(sun);
   popMatrix();
+}
 
+//creating the mercury
+void mercury()
+{  
+  pushMatrix();
+  rotate1Spd += 4.15;
+  rotateY( radians(rotate1Spd) );
+  translate(mercuryxPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(mercury);
+  popMatrix();
+}
+
+//creating the venus
+void venus()
+{  
+  pushMatrix();
+  rotate2Spd += 1.62;
+  rotateY( radians(rotate2Spd) );
+  translate(venusxPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(venus);
+  popMatrix();
+}
+
+//creating the earth
+void earth()
+{  
+  pushMatrix();
+  rotate3Spd += 1;
+  rotateY( radians(rotate3Spd) );
+  translate(earthxPos * scale, earthyPos, earthzPos);
+  noStroke();
+  lights();
+  shape(earth);
+  popMatrix();
+}
+
+  //creating the moon
+  void moon()
+  {
+    translate(earthxPos * scale, earthyPos * scale, earthzPos);
+    
+    pushMatrix();
+    moonRotateSpd += 10;
+    rotateY( radians(moonRotateSpd) );
+    translate(50 * scale, 0, -500);
+    noStroke();
+    lights();
+    shape(moon);
+    popMatrix();
+  
+  }
+
+//creating the mars
+void mars()
+{  
+  pushMatrix();
+  rotate4Spd += 0.53;
+  rotateY( radians(rotate4Spd) );
+  translate(marsxPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(mars);
+  popMatrix();
+}
+
+//creating the jupiter
+void jupiter()
+{  
+  pushMatrix();
+  rotate5Spd += 0.083;
+  rotateY( radians(rotate5Spd) );
+  translate(jupiterxPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(jupiter);
+  popMatrix();
+}
+
+//creating the saturn
+void saturn()
+{  
+  pushMatrix();
+  rotate6Spd += 0.0345;
+  rotateY( radians(rotate6Spd) );
+  translate(saturnxPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(saturn);
+  popMatrix();
+}
+
+//creating the uranus
+void uranus()
+{  
+  pushMatrix();
+  rotate7Spd += 0.012;
+  rotateY( radians(rotate7Spd) );
+  translate(uranusxPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(uranus);
+  popMatrix();
+}
+
+//creating the neptune
+void neptune()
+{  
+  pushMatrix();
+  rotate8Spd += 0.0061;
+  rotateY( radians(rotate8Spd) );
+  translate(neptunexPos, 0, zPos);
+  noStroke();
+  lights();
+  shape(neptune);
+  popMatrix();
 }
