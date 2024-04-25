@@ -13,6 +13,16 @@ float earthxPos;
 float earthyPos;
 float earthzPos;
 
+float sunxPos;
+float mercuryxPos;
+float venusxPos;
+float moonxPos;
+float marsxPos;
+float jupiterxPos;
+float saturnxPos;
+float uranusxPos;
+float neptunexPos;
+
 float sunSize;
 float mercurySize;
 float venusSize;
@@ -66,7 +76,15 @@ void setup()
   //sets the scale factor of the solar system so you can make it bigger or smaller if you want
   scale = 1;
   //setting the initial position of all of the planets
-  xPos = width/2;
+  sunxPos = width/2;
+  mercuryxPos = 100;
+  venusxPos = 1000;
+  moonxPos = 50;
+  marsxPos = 2000;
+  jupiterxPos = 2500;
+  saturnxPos = 3000;
+  uranusxPos = 3500;
+  neptunexPos = 4000;
   yPos = height/2;
   zPos = -1000;
   
@@ -240,7 +258,7 @@ void draw()
   pushMatrix();
   rotate1Spd += 4.15;
   rotateY( radians(rotate1Spd) );
-  translate(100 * scale, 0, zPos);
+  translate(mercuryxPos, 0, zPos);
   noStroke();
   lights();
   shape(mercury);
@@ -250,7 +268,7 @@ void draw()
   pushMatrix();
   rotate2Spd += 1.62;
   rotateY( radians(rotate2Spd) );
-  translate(1000 * scale, 0, zPos);
+  translate(venusxPos, 0, zPos);
   noStroke();
   lights();
   shape(venus);
@@ -270,7 +288,7 @@ void draw()
   pushMatrix();
   rotate4Spd += 0.53;
   rotateY( radians(rotate4Spd) );
-  translate(2000 * scale, 0, zPos);
+  translate(marsxPos, 0, zPos);
   noStroke();
   lights();
   shape(mars);
@@ -280,7 +298,7 @@ void draw()
   pushMatrix();
   rotate5Spd += 0.083;
   rotateY( radians(rotate5Spd) );
-  translate(2500 * scale, 0, zPos);
+  translate(jupiterxPos, 0, zPos);
   noStroke();
   lights();
   shape(jupiter);
@@ -290,7 +308,7 @@ void draw()
   pushMatrix();
   rotate6Spd += 0.0345;
   rotateY( radians(rotate6Spd) );
-  translate(3000 * scale, 0, zPos);
+  translate(saturnxPos, 0, zPos);
   noStroke();
   lights();
   shape(saturn);
@@ -300,7 +318,7 @@ void draw()
   pushMatrix();
   rotate7Spd += 0.012;
   rotateY( radians(rotate7Spd) );
-  translate(3500 * scale, 0, zPos);
+  translate(uranusxPos, 0, zPos);
   noStroke();
   lights();
   shape(uranus);
@@ -310,7 +328,7 @@ void draw()
   pushMatrix();
   rotate8Spd += 0.0061;
   rotateY( radians(rotate8Spd) );
-  translate(4000 * scale, 0, zPos);
+  translate(neptunexPos, 0, zPos);
   noStroke();
   lights();
   shape(neptune);
