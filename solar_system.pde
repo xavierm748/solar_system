@@ -93,7 +93,7 @@ void setup()
   saturnxPos = 3400;
   uranusxPos = 4000;
   neptunexPos = 4500;
-  //sets the Y position of the planets so they will be in the middle of the screen
+  //setting the suns Y position and Z position
   sunyPos = height/2;
   sunzPos = -1000;
   
@@ -101,7 +101,7 @@ void setup()
   earthyPos = 0;
   earthzPos = -1000;
   
-  //sets all of the planets size variables
+  //sets all of the planets size which is the DIAMETER of the sphere NOT THE RADIUS
   sunSize = 500;
   mercurySize = 100;
   venusSize = 150;
@@ -168,13 +168,6 @@ void draw()
 {
   background(0);
   
-  ////this lets you change the scale factor whenever you want
-  //if(key == 'q' || key == 'Q')
-  //  scale += 0.5;
-  //if(key == 'e' || key == 'E')
-  //  scale -= 0.5;
-  //if(scale >= 2 || scale <= 0)
-  //  scale = 1;
   //this makes you be able to switch the planets between spheres and boxs
   if(key == 'b' || key == 'B')
   {
@@ -256,6 +249,7 @@ void draw()
   
   //sets the planets to orbit around the sun except for the moon
   translate(sunxPos, sunyPos, sunzPos);
+  
   //Mercury
   mercury();
   //Venus
