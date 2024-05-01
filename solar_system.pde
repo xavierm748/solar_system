@@ -125,16 +125,17 @@ void setup()
   uranusSize = 225;
   neptuneSize = 200;
   
-  sunBoxSize = 500;
-  mercuryBoxSize = 200;
-  venusBoxSize = 250;
-  earthBoxSize = 300;
-  moonBoxSize = 150;
-  marsBoxSize = 275;
-  jupiterBoxSize = 400;
-  saturnBoxSize = 375;
-  uranusBoxSize = 325;
-  neptuneBoxSize = 300;
+  //these set the size of the planets if you make them boxs
+  sunBoxSize = 700;
+  mercuryBoxSize = 300;
+  venusBoxSize = 550;
+  earthBoxSize = 400;
+  moonBoxSize = 250;
+  marsBoxSize = 375;
+  jupiterBoxSize = 500;
+  saturnBoxSize = 475;
+  uranusBoxSize = 425;
+  neptuneBoxSize = 400;
 
   /*
     loading all of the images of the planets
@@ -260,14 +261,16 @@ void draw()
   }
 
   //setting the default camera position
-  camera(width/2, height+1000, 4000, width/2, height/2, 0, 0, -1, 0);
+  camera(width/2, height+400, 4000, sunxPos, sunyPos, 0, 0, -1, 0);
   
   //drawing all of the planets and the sun
   //Sun
   sun();
   
   //this lets you spin the whole solar system around to see the whole thing
+  //(doesnt work like i would like it to right now)
   if(mousePressed)
+    //camera(mouseX*7, height+400, 4000, sunxPos, sunyPos, sunzPos, 0, -1, 0);
     rotateY( radians(mouseX/5) );
   
   //sets the planets to orbit around the sun except for the moon
