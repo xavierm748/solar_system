@@ -34,6 +34,18 @@ float saturnSize;
 float uranusSize;
 float neptuneSize;
 
+//creating the variables for each planets size
+float sunBoxSize;
+float mercuryBoxSize;
+float venusBoxSize;
+float earthBoxSize;
+float moonBoxSize;
+float marsBoxSize;
+float jupiterBoxSize;
+float saturnBoxSize;
+float uranusBoxSize;
+float neptuneBoxSize;
+
 //creates the rotation speed variables
 float rotate1Spd;
 float rotate2Spd;
@@ -113,6 +125,17 @@ void setup()
   uranusSize = 225;
   neptuneSize = 200;
   
+  sunBoxSize = 500;
+  mercuryBoxSize = 200;
+  venusBoxSize = 250;
+  earthBoxSize = 300;
+  moonBoxSize = 150;
+  marsBoxSize = 275;
+  jupiterBoxSize = 400;
+  saturnBoxSize = 375;
+  uranusBoxSize = 325;
+  neptuneBoxSize = 300;
+
   /*
     loading all of the images of the planets
     creating all of the planets by making them into a sphere shape
@@ -172,34 +195,34 @@ void draw()
   if(key == 'b' || key == 'B')
   {
     //sun
-    sun = createShape(BOX, sunSize);
+    sun = createShape(BOX, sunBoxSize);
     sun.setTexture(Sun);
     //Mercury
-    mercury = createShape(BOX, mercurySize);
+    mercury = createShape(BOX, mercuryBoxSize);
     mercury.setTexture(Mercury);
     //Venus
-    venus = createShape(BOX, venusSize);
+    venus = createShape(BOX, venusBoxSize);
     venus.setTexture(Venus);
     //Earth
-    earth = createShape(BOX, earthSize);
+    earth = createShape(BOX, earthBoxSize);
     earth.setTexture(Earth);
     //Moon
-    moon = createShape(BOX, moonSize);
+    moon = createShape(BOX, moonBoxSize);
     moon.setTexture(Moon);
     //Mars
-    mars = createShape(BOX, marsSize);
+    mars = createShape(BOX, marsBoxSize);
     mars.setTexture(Mars);
     //Jupiter
-    jupiter = createShape(BOX, jupiterSize);
+    jupiter = createShape(BOX, jupiterBoxSize);
     jupiter.setTexture(Jupiter);
     //Saturn
-    saturn = createShape(BOX, saturnSize);
+    saturn = createShape(BOX, saturnBoxSize);
     saturn.setTexture(Saturn);
     //Uranus
-    uranus = createShape(BOX, uranusSize);
+    uranus = createShape(BOX, uranusBoxSize);
     uranus.setTexture(Uranus);
     //Neptune
-    neptune = createShape(BOX, neptuneSize);
+    neptune = createShape(BOX, neptuneBoxSize);
     neptune.setTexture(Neptune);
   }
   if(key == 's' || key == 'S')
